@@ -36,7 +36,10 @@ while game_is_on:
     screen.update()
     if ball.ycor() >= 280 or ball.ycor() <= -280:
         ball.bounce()
-
+    if ball.distance(paddle_right) < 50:
+        ball.ball_return()
+    if ball.distance(paddle_left) < 50:
+        ball.ball_return()
 
 
 
