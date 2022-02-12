@@ -14,6 +14,7 @@ class Ball(Turtle):
         self.y_move = 10
 
 
+
     def move(self):
 
         new_x = self.xcor() + self.x_move
@@ -27,3 +28,9 @@ class Ball(Turtle):
 
     def ball_return(self):
         self.x_move *= -1
+
+
+    def reset(self):
+        self.goto(0, 0)
+        self.x_move *= -1
+        self.y_move *= -1

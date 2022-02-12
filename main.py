@@ -1,6 +1,7 @@
 from paddle import Paddle
 from turtle import Screen
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 #Setting up the screen size and colourr
@@ -9,6 +10,7 @@ screen.setup(width=800, height=600)
 screen.bgcolor("black")
 screen.title("Pyong")
 game_is_on = True
+scoreboard = Scoreboard()
 
 
 #stops screen auto update
@@ -40,6 +42,15 @@ while game_is_on:
     #checks collsision with right paddle
     if ball.distance(paddle_right) < 40 and ball.xcor() > 340 or ball.distance(paddle_left) < 40 and ball.xcor() < 340:
         ball.ball_return()
+
+    #check if right misses
+    if ball.xcor() > 380:
+        ball.reset()
+        scoreboard.increase_left_score()
+
+    if ball.xcor() < -380:
+        ball.reset()
+        scoreboard.increase_right_score()
 
 
 
