@@ -12,6 +12,7 @@ class Ball(Turtle):
         self.going_up = True
         self.x_move = 10
         self.y_move = 10
+        self.movespeed = 0.1
 
 
 
@@ -28,9 +29,11 @@ class Ball(Turtle):
 
     def ball_return(self):
         self.x_move *= -1
+        self.movespeed *= 0.9
 
 
     def reset(self):
         self.goto(0, 0)
         self.x_move *= -1
         self.y_move *= -1
+        self.movespeed = 0.1

@@ -34,7 +34,7 @@ screen.onkey(paddle_left.paddle_down, "s")
 #main loop
 while game_is_on:
     screen.update()
-    time.sleep(0.1)
+    time.sleep(ball.movespeed)
     ball.move()
     #checks collision with walls
     if ball.ycor() >= 280 or ball.ycor() <= -280:
@@ -43,12 +43,16 @@ while game_is_on:
     if ball.distance(paddle_right) < 40 and ball.xcor() > 340 or ball.distance(paddle_left) < 40 and ball.xcor() < 340:
         ball.ball_return()
 
+
+
     #check if right misses
     if ball.xcor() > 380:
+        sleep_time = 0.1
         ball.reset()
         scoreboard.increase_left_score()
 
     if ball.xcor() < -380:
+        sleep_time = 0.1
         ball.reset()
         scoreboard.increase_right_score()
 
