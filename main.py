@@ -1,6 +1,6 @@
 from paddle import Paddle
 from turtle import Screen
-
+from ball import Ball
 
 #Setting up the screen size and colourr
 screen = Screen()
@@ -13,7 +13,7 @@ screen.tracer(0)
 
 paddle_left = Paddle((-350, 0))
 paddle_right = Paddle((350, 0))
-
+ball = Ball()
 
 
 
